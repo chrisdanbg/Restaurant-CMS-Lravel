@@ -25,4 +25,4 @@ Also for the Homepage several Javascript plugins are used including:
 
 ## Screens
 ![](https://thumbs.gfycat.com/GreedyClosedEwe-size_restricted.gif)
-![](https://media.giphy.com/media/1qhzDBcOWxcQoJ8g7m/giphy.gif)
+![](https://thumbs.gfycat.com/QualifiedPracticalCuttlefish-size_restricted.gif)
