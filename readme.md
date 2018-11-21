@@ -12,10 +12,10 @@ Info and about sections with dynamic content sections.
 
 ## Stack
 
-The application is build on pure HTML/CSS for the static part and using PHP's Framework - Laravel for the back-end connection.
-The communication between the database and the front-end is achieved trough MySql.
+The application is build on pure HTML/CSS for the static part and using __PHP's Framework - Laravel__ for the back-end connection.
+The communication between the database and the front-end is achieved trough __MySql__.
 
-Also for the Homepage several Javascript plugins are used including:
+Also for the Homepage several __Javascript__ plugins are used including:
 
 
 - **[Vegas Background SlideShow](https://vegas.jaysalvat.com)**
