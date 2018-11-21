@@ -24,5 +24,4 @@ Also for the Homepage several Javascript plugins are used including:
 - **[MapBox](https://www.mapbox.com/mapbox.js/api/v3.1.1/)**
 
 ## Screens
-
-<div style='position:relative; padding-bottom:72.93%'><iframe src='https://gfycat.com/ifr/GreedyClosedEwe' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+![https://gfycat.com/GreedyClosedEwe]
