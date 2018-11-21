@@ -24,5 +24,9 @@ Also for the Homepage several Javascript plugins are used including:
 - **[MapBox](https://www.mapbox.com/mapbox.js/api/v3.1.1/)**
 
 ## Screens
+
+### Desktop
 ![](https://thumbs.gfycat.com/GreedyClosedEwe-size_restricted.gif)
+
+### Mobile
 ![](https://thumbs.gfycat.com/QualifiedPracticalCuttlefish-size_restricted.gif)
