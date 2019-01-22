@@ -15,7 +15,7 @@
     <input type="checkbox" id="toggle" name="" value="">
 
     <div class="menu text-white mr-4">
-      <a href="/recipes/create" class="">Меню
+      <a href="/menu" class="">Меню
       </a>
       <a href="/recipes/create" class="">
         За вкъщи

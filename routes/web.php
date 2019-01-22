@@ -1,16 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+// HOME GET Request
 Route::get('/', [
     'uses' => 'HomeController@index',
     'as' => 'home'
@@ -20,26 +10,51 @@ Auth::routes();
 
 Route::resource('recipes', 'RecipesController');
 
+// NAVBAR GET Requests
+Route::get('/menu', 'MenuController@index')->name('menu');
+
+// Get Requests For Admin Panel
+// TODO : Get It Behind Authorization
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/homepage', 'AdminController@getSettings')->name('adminHomepage');
+Route::get('/admin/menu', 'AdminController@getMenu')->name('adminMenu');
+Route::get('/admin/create', 'AdminController@createProduct')->name('adminCreate');
+Route::get('/admin/category', 'AdminController@createCategory')->name('adminCreateCategory');
 
-Route::get('/admin/homepage', 'AdminController@getSettings')->name('homepage');
 
-Route::post('/admin/homepage/slider' ,[
-    'uses' => 'AdminController@updateSiteName',
-    'as' => 'homepage.updateSlider'
-]);
+// Admin POST REQUESTS
 
-Route::post('/admin/homepage/product1' ,[
-    'uses' => 'AdminController@productOneUpdate',
-    'as' => 'homepage.productOneUpdate'
-]);
+    // Create Product
+    Route::post('/admin/create/product', [
+        'uses' => 'AdminController@createNewProduct',
+        'as' => 'admin.createNew'
+    ]);
 
-Route::post('/admin/homepage/product2' ,[
-    'uses' => 'AdminController@productTwoUpdate',
-    'as' => 'homepage.productTwoUpdate'
-]);
+    // Create Category
+    Route::post('/admin/create/category', [
+        'uses' => 'AdminController@createNewCategory',
+        'as' => 'admin.createNewCategory'
+    ]);
+    
+    // Update Homepage Slider
+    Route::post('/admin/homepage/slider' ,[
+        'uses' => 'AdminController@updateSiteName',
+        'as' => 'homepage.updateSlider'
+    ]);
 
-Route::post('/admin/homepage/product3' ,[
-    'uses' => 'AdminController@productThreeUpdate',
-    'as' => 'homepage.productThreeUpdate'
-]);
+    // Update Homepage Quick Order Products
+    Route::post('/admin/homepage/product1' ,[
+        'uses' => 'AdminController@productOneUpdate',
+        'as' => 'homepage.productOneUpdate'
+    ]);
+
+    Route::post('/admin/homepage/product2' ,[
+        'uses' => 'AdminController@productTwoUpdate',
+        'as' => 'homepage.productTwoUpdate'
+    ]);
+
+    Route::post('/admin/homepage/product3' ,[
+        'uses' => 'AdminController@productThreeUpdate',
+        'as' => 'homepage.productThreeUpdate'
+    ]);
+    // END Update Homepage Quick Order Products

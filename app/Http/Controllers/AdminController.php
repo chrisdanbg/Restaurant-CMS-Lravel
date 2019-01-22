@@ -2,23 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\HomeItem;
+use App\Product;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //  Returns to Admin - Index 
     public function index()
     {
         return view ('admin/index');
     }
 
+    //  Returns to Admin - Menu Option
+    public function getMenu()
+    {
+        $products = Product::all();
 
+        return view ('admin/menu')->with('products', $products);
+    }
+
+    //  Returns to Admin - Create New Category View
+    public function createCategory()
+    {
+        return view ('admin/category');
+    }
+
+    // POST Request Admin - Create New Category
+    public function createNewCategory(Request $request)
+    {
+        $category =  new Category;
+        $category->title = $request->title;
+
+        $category->save();
+
+        return redirect()->route('adminMenu');
+    }
+
+    //  Returns to Admin - Create New Product View
+    public function createProduct()
+    {
+        $categories = Category::all();
+        return view ('admin/create')->with('categories', $categories);
+    }
+
+    // POST Request Admin - Create New Product
+    public function createNewProduct(Request $request)
+    {
+        $product = new Product;
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category = $request->category;
+
+        $product->save();
+
+        return redirect()->route('adminMenu');
+    }
+
+    //  Returns to Admin - Homepage View
     public function getSettings()
     {
         $item = HomeItem::first();
@@ -37,6 +82,7 @@ class AdminController extends Controller
                     ->with('itemThreePrice', $item->itemThreePrice);
     }
     
+    // POST Request Admin - Homepage Update Site Name
     public function updateSiteName(Request $request)
     {
         $title = $request->title;
@@ -52,6 +98,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    // POST Request Admin - Homepage Update Product One
     public function productOneUpdate(Request $request)
     {
         $name = $request->itemOneName;
@@ -68,6 +115,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    // POST Request Admin - Homepage Update Product Two
     public function productTwoUpdate(Request $request)
     {
         $homeItem = HomeItem::first();
@@ -80,6 +128,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    // POST Request Admin - Homepage Update Product Three
     public function productThreeUpdate(Request $request)
     {
         $homeItem = HomeItem::first();
@@ -90,70 +139,5 @@ class AdminController extends Controller
         $homeItem->save();
         
         return redirect()->back();
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
