@@ -18,9 +18,13 @@ Route::get('/menu', 'MenuController@index')->name('menu');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/homepage', 'AdminController@getSettings')->name('adminHomepage');
 Route::get('/admin/menu', 'AdminController@getMenu')->name('adminMenu');
-Route::get('/admin/create', 'AdminController@createProduct')->name('adminCreate');
+
 Route::get('/admin/category', 'AdminController@createCategory')->name('adminCreateCategory');
 
+// GET Requests Admin Product
+Route::get('/admin/create', 'AdminController@createProduct')->name('adminCreate');
+Route::get('/admin/product/edit/{id}', 'AdminController@editProduct')->name('adminEditProduct');
+Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name('adminDeleteProduct');
 
 // Admin POST REQUESTS
 
@@ -28,6 +32,12 @@ Route::get('/admin/category', 'AdminController@createCategory')->name('adminCrea
     Route::post('/admin/create/product', [
         'uses' => 'AdminController@createNewProduct',
         'as' => 'admin.createNew'
+    ]);
+
+    // Edit Product
+    Route::post('/admin/edit/product/{id}', [
+        'uses' => 'AdminController@updateProduct',
+        'as' => 'admin.EditProduct'
     ]);
 
     // Create Category

@@ -29,6 +29,10 @@
     <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
     {{-- / MAPBOX --}}
 
+    {{-- SweatAlert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- / SweatAlert --}}
+
     <title>Bahd-recipes </title>
 </head>
 
@@ -66,6 +70,7 @@
 </script>
 
 <script>
+    
     L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXNkYW5iZyIsImEiOiJjamgzajRoNzUwZmtyMnhtcnNvMzZra3pkIn0.idaBkNna1DmUwem9j5zAgw';
     var map = L.mapbox.map('map', 'mapbox.streets')
       .setView([42.016, 23.094], 16);

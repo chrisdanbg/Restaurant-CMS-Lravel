@@ -41,11 +41,40 @@ class AdminController extends Controller
         return redirect()->route('adminMenu');
     }
 
+
     //  Returns to Admin - Create New Product View
     public function createProduct()
     {
         $categories = Category::all();
         return view ('admin/create')->with('categories', $categories);
+    }
+
+    public function editProduct($id)
+    {
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view ('admin/edit')->with('product', $product)
+                                  ->with('categories', $categories);
+    }
+
+    public function updateProduct(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category = $request->category;
+
+        $product->save();
+        return redirect()->route('adminMenu');
+    }
+
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id)->delete();
+        
+        return redirect()->back();
     }
 
     // POST Request Admin - Create New Product

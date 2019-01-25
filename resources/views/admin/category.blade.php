@@ -2,7 +2,9 @@
 
 @section('adminContent')
     <div class="col-md-8 admin-panel">
-       <h1 class="text-center">Create New Product</h1>
+        <div class="row mb-2">
+               <a href="{{ url()->previous() }}"><i class="fa fa-arrow-left fa-2x col-md-2 mt-2" style="color:black;"aria-hidden="true"></i></a>
+        </div>
 
 
        <form class="card p-5" action="{{ route('admin.createNewCategory')}}" method="POST">
