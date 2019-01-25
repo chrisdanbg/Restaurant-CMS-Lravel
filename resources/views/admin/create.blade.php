@@ -37,8 +37,15 @@
                 </div>
             </div>
 
+            <input type="file" class="filepond">
+
              <button type="submit" class="btn btn-primary">Запази</button>
         </form>
 
     </div>
+
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+        FilePond.parse(document.body);
+</script>
 @endsection

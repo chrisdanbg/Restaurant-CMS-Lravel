@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{asset('css/vegas.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/btn-sec.css')}}">
 
+    {{-- Filepond CSS --}}
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
 
