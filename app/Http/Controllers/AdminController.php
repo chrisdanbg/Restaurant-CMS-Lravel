@@ -7,6 +7,7 @@ use App\HomeItem;
 use App\Product;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -59,15 +60,29 @@ class AdminController extends Controller
 
     public function updateProduct(Request $request, $id)
     {
+        // Substring Filepath from the request so it's compatible
+        
+
         $product = Product::find($id);
 
         $product->title = $request->title;
+
+        if (!empty($request->filepond))
+        {
+            $url = substr($request->filepond, 6);
+            $product->photoUrl = $url;
+        }
         $product->description = $request->description;
         $product->price = $request->price;
         $product->category = $request->category;
 
         $product->save();
         return redirect()->route('adminMenu');
+    }
+
+    public function uploadProductPhoto(Request $request){
+        $file = $request->file('filepond');
+    	return Storage::put('public', $file);
     }
 
     public function deleteProduct($id)
@@ -80,8 +95,12 @@ class AdminController extends Controller
     // POST Request Admin - Create New Product
     public function createNewProduct(Request $request)
     {
-        $product = new Product;
+        // Substring Filepath from the request so it's compatible
+        $url = substr($request->filepond, 6);
 
+        $product = new Product;
+        
+        $product->photoUrl = $url;
         $product->title = $request->title;
         $product->description = $request->description;
         $product->price = $request->price;

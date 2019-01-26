@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('adminContent')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="col-md-8 admin-panel">
         {{-- NAV BUTTONS --}}
         <a href="{{ url()->previous() }}"><i class="fa fa-arrow-left fa-2x col-md-2 mt-2 pull-left" style="color:black;"aria-hidden="true"></i></a>
@@ -22,10 +23,12 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                      <th scope="row">{{ $product->id }}</th>
-                      <td>{{ $product->title }}</td>
-                      <td>{{ $product->category }}</td>
-                      <td>{{ $product->price }}</td>
+                      <td style="width:10%;">
+                        <img class="" id="badge" name="badge" src="../storage{{ $product->photoUrl }}" href="../storage{{ $product->photoUrl }}" alt="" width="45%">
+                      </td>
+                      <td class="vertical-align: middle;">{{ $product->title }}</td>
+                      <td class="vertical-align: middle;">{{ $product->category }}</td>
+                      <td class="vertical-align: middle;">{{ $product->price }}</td>
                       <td align="center">
                       <a href="{{ route('adminEditProduct', ['id'=>$product->id])}}" class="btn-primary btn-lg ml-0 text-center" role="button" aria-pressed="true"><i class="fa fa-pencil"></i></a>
                         <a href ="#" data-id="{{$product->id}}" data-url="product/delete/" class="deleteProduct btn-primary btn-lg mr-1 text-center" role="button" aria-pressed="true"><i class="fa fa-minus-circle"></i></a>

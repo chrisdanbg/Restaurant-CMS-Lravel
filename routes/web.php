@@ -39,6 +39,9 @@ Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name(
         'uses' => 'AdminController@updateProduct',
         'as' => 'admin.EditProduct'
     ]);
+    
+    // Upload Product Photo
+    Route::post('upload', 'AdminController@uploadProductPhoto');
 
     // Create Category
     Route::post('/admin/create/category', [
