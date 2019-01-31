@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class MenuController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view ('menu/index')->with(['products' => $products]);
+        $categories = Category::all();
+
+        return view ('menu/index')->with(['products' => $products])->with(['categories' => $categories]);
     }
 
     /**

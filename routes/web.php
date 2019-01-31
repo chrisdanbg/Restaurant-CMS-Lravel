@@ -20,6 +20,7 @@ Route::get('/admin/homepage', 'AdminController@getSettings')->name('adminHomepag
 Route::get('/admin/menu', 'AdminController@getMenu')->name('adminMenu');
 
 Route::get('/admin/category', 'AdminController@createCategory')->name('adminCreateCategory');
+Route::get('/admin/category/{id}', 'AdminController@getItemsForCategory')->name('admingetItemsForCategory');
 
 // GET Requests Admin Product
 Route::get('/admin/create', 'AdminController@createProduct')->name('adminCreate');

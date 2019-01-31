@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/new.css')}}">
     <link rel="stylesheet" href="{{asset('css/vegas.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/btn-sec.css')}}">
+    <link rel="stylesheet" href="{{asset('css/menuSpy.css')}}">
 
     {{-- Filepond CSS --}}
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
@@ -22,6 +23,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
 
     <script src="{{asset('js/wow.min.js')}}"></script>
+
+    <script src="{{asset('js/menuspy.js')}}"> var MenuSpy = require('menuspy');</script>
 
     {{-- SWIPER  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.js"></script>

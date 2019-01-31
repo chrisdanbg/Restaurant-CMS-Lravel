@@ -1,35 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-12 mt-5">
-        <h1 class="text-center">Menu</h1>
+
+<div class="row" id="menucontent">
+    
+    <div class="col-md-12 mt-5" id="menutext">
+        <h1 class="text-center mt-5 menutext">Меню</h1>
      </div>
 
-     @foreach ($products as $product)
-        <div class="item-slider">
-            <div class="card text-right" style="width: 100%; height: 350px;">
-              <div class="card-body mr-4">
-              <div class="row">
-                  <div class="col-md-5">
-                      <img class="rounded float-left mb-2" id="product-image" src="../storage{{ $product->photoUrl }}" alt="" width="80%">
-                  </div>
-                  <div class="col-md-4 ml-auto">
-                    <h5 class=" text-right">{{$product->title}}</h5>
-                    <h4 class="mt-0">{{$product->price}}лв.</h4>
-                    <a href="#" class="btn btn-primary mb-2">Добави</a>
-                  </div>
-                
-              </div>
-              
-              
-              <p class="card-text desc mb-4">Съдържа: {{$product->description}}</p>
-              </div>
-            </div>
-        </div>        
-     @endforeach
-    
-    
-</div>
+    <div id="main-header" class="fixed-header mb-2">
+        <nav>
+            <ul>
+                @foreach ($categories as $category)
+                    <li><a href="" title="{{$category->title}}" id="product-Category">{{$category->title}}</a></li>
+                @endforeach
+            </ul>
+        </nav>
+    </div>
 
+    <section id="category-Section">
+      
+    </section>
+
+
+
+</div>
+<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/menuspy@latest/dist/menuspy.min.js"></script>
+<script>
+    $(document).ready(function(){  
+    $("#category-Section").load('/admin/category/' + 'Салати');
+    $('#product-Category').parent().addClass('active');
+    }); 
+
+    var elm = document.querySelector('#main-header');
+    var ms = new MenuSpy(elm);
+</script>
+
+<script>
+    $(window).scroll(function(){
+        if ($(window).scrollTop() >= 240) {
+            $('#main-header').addClass('scroll-header');
+            $('#menucontent').addClass('padded');
+        }
+        else {
+            $('#main-header').removeClass('scroll-header');
+            $('#menucontent').removeClass('padded');
+        }
+    });
+
+    
+</script>
+
+
+<script>
+ $('#main-header').click(function (event) {
+    event.preventDefault();
+
+    $('li').removeClass('active');
+    $(event.target).parent().addClass('active');
+
+    var selectedCategoryPage = event.target.attributes[1].value;
+    $("#category-Section").load('/admin/category/' + selectedCategoryPage);
+    });
+</script>
 @endsection

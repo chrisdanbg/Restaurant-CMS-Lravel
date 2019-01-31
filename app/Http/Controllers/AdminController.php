@@ -58,6 +58,12 @@ class AdminController extends Controller
                                   ->with('categories', $categories);
     }
 
+    public function getItemsForCategory($title)
+    {
+        $products = Product::where('category', $title)->take(10)->get();
+        return view ('menu/selectedCategory')->with('products', $products);
+    }
+
     public function updateProduct(Request $request, $id)
     {
         // Substring Filepath from the request so it's compatible

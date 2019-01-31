@@ -1,0 +1,47 @@
+.fixed-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #FFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.fixed-header li {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  margin: 0 5px;
+}
+
+.fixed-header a {
+  display: block;
+  line-height: 60px;
+  color: #444;
+  text-decoration: none;
+  padding: 0 20px;
+  -webkit-transition: 0.2s;
+          transition: 0.2s;
+}
+
+.fixed-header .active a {
+  background: #222;
+  color: #FFF;
+}
+
+/*  */
+.scroll-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  scroll-behavior: smooth;
+}
+
+.padded {
+  padding-top: 90px;
+}
+
+
