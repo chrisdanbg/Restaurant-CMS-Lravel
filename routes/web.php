@@ -72,3 +72,19 @@ Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name(
         'as' => 'homepage.productThreeUpdate'
     ]);
     // END Update Homepage Quick Order Products
+
+// Cart Routes
+Route::get('/addToCart/{id}', [
+    'uses' => 'CartController@getAddToCart',
+    'as' => 'cart.addToCart'
+]);
+
+Route::get('/cart', [
+    'uses' => 'CartController@getCart',
+    'as' => 'cart.showCart'
+]);
+
+Route::get('/cart/remove/{id}', [
+    'uses' => 'CartController@getDeleteCartItem',
+    'as' => 'cart.deleteItem'
+]);

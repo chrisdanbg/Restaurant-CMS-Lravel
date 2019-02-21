@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/new.css')}}">
+    <link rel="stylesheet" href="{{asset('css/cart.css')}}">
     <link rel="stylesheet" href="{{asset('css/vegas.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/btn-sec.css')}}">
     <link rel="stylesheet" href="{{asset('css/menuSpy.css')}}">

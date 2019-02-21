@@ -7,8 +7,8 @@
 
     <div class="left-menu float-left ml-4" >
         <img src="{{asset('img/take-away.png')}}" class="navbar-logo-img m-2" alt="">
-        <a href="/recipes/create" class="deliverytext" style="color: white;">
-          Поръчка
+        <a href="{{ route('cart.showCart')}}" class="deliverytext" style="color: white;">
+        Поръчка <span class="badge badge-light"> {{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</span>
         </a>
     </div>
     <label for="toggle" class="ham">&#9776;</label>

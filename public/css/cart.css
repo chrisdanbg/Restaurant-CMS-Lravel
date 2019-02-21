@@ -1,0 +1,19 @@
+.badge {
+    font-size: 20px;
+}
+
+.menu-desktop-card-image {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  width: 70%;
+}
+
+.menu-desktop-card-image img {
+    object-fit: cover;
+    width:150px;
+    height:150px;
+}
